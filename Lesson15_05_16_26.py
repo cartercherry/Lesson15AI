@@ -112,7 +112,7 @@ try:
         data = stream.read(4000, exception_on_overflow=False)  # STT started
         if recognizer.AcceptWaveform(data):
             result = json.loads(recognizer.Result())
-            text = result.get("text", "")
+            text = result.get("text", "")  #STT results
             if 'quit' in text:
                 break
             splitText = text.split()
