@@ -16,7 +16,6 @@ import json
 import os
 import sys
 from adafruit_servokit import ServoKit
-from picamera2 import Picamera2
 
 numbersDict={'zero':0, 'one': 1, 'to': 2, 'three': 3,'for':4, 'five':5, 'six':6, 'seven':7, 'eight':8,\
              'nine':9, 'ten':10, 'twenty':20}
