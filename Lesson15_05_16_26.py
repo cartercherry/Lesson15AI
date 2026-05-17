@@ -39,7 +39,7 @@ tiltAngle = 90
 print("Initializing PCA9685 board...")
 kit = ServoKit(channels=16)
 
-# Optional: If your servos hum or jitter at the extremes (0 or 180), 
+#If  servos hum or jitter at the extremes (0 or 180), 
 # you can fine-tune their pulse width ranges here. Standard is typically 500 to 2500.
 kit.servo[0].set_pulse_width_range(400, 2600)
 kit.servo[1].set_pulse_width_range(400, 2600)
@@ -49,7 +49,7 @@ kit.servo[1].angle = tiltAngle
 
 
 
-# 2. The Magic Muffler: Silences C-level ALSA warnings
+# Silences C-level ALSA warnings
 @contextmanager
 def ignore_alsa_warnings():
     devnull = os.open(os.devnull, os.O_WRONLY)
@@ -63,7 +63,7 @@ def ignore_alsa_warnings():
         os.dup2(old_stderr, sys.stderr.fileno())
         os.close(old_stderr)
 
-# 3. Setup STT Engine
+# Setup STT Engine
 SetLogLevel(-1)
 MODEL_PATH = "/opt/vosk_models/vosk-model-small-en-us-0.15"
 
@@ -77,7 +77,7 @@ with ignore_alsa_warnings():
 device_index = None
 for i in range(p.get_device_count()):
     dev_info = p.get_device_info_by_index(i)
-    if 'Snowball' in dev_info.get('name', ''):
+    if 'Snowball' in dev_info.get('name', ''):  #microphone
         device_index = i
         break
 
