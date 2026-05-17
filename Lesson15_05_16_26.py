@@ -105,7 +105,7 @@ try:
                 cv2.moveWindow('Video', 0, 50)
                 window_moved = True
 
-                # 6. The Event Loop
+                # event loop
         if cv2.waitKey(1) & 0xFF == ord('q'):
                 print("Quit signal received.")
                 break
